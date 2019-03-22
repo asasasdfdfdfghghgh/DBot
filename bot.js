@@ -34,9 +34,12 @@ client.on('ready', () => {
   console.log('')
 });
 
+
+//-
+
 client.on('ready', function(){
  var ms = 7000;
-    var setGame = [`$bc , $invite`,`$bot`,`Dbot | Da7m`];
+ var setGame = [`${client.guilds.size} Servers`,`${prefix}bot`,`${prefix}bc | ${prefix}invite`];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -47,7 +50,7 @@ client.on('ready', function(){
             j = -1;
         }
         i = i+j;
-        client.user.setActivity(setGame[i],{type: "STREAMIN"});
+        client.user.setActivity(setGame[i],{type: "WATCHING"});
     }, ms);
  
  
@@ -56,16 +59,16 @@ client.on('ready', function(){
 
 //بداية كود البرودكاست
 
-client.on("message", message => {
+lient.on("message", message => {
 
-            if (message.content.startsWith(prefix + "bc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+if (message.content.startsWith('$bc')){
+if (!message.member.hasPermission("ADMINISTRATOR"))  return;
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' '); 
-  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
  m.send(`${argresult}\n ${m}`);
 })
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` **: عدد الاعضاء المستلمين**`); 
  message.delete(); 
 };     
 });
@@ -92,6 +95,7 @@ client.on('message', message => {
 }
 });
 
+//---
 
 client.on('message' , message => {
  

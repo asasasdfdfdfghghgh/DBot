@@ -29,7 +29,45 @@ client.on("message", message => {
 
 
 
+// + معلومات البوت + كود البينج الهو سرعة البوت
+ 
+client.on('message', message => {
+    if (message.content === ('*stats')) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('RANDOM')
+            .addField('**سرعة البوت 🚀 :**' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField('**السيرفرات 📚 :**', [client.guilds.size], true)
+            .addField('**الرومات 📝 :**' , `[ ${client.channels.size} ]` , true)
+            .addField('**خادم :**' , `__**GMZN Host/V4:Pro**__` , true)
+            .addField('**البرفكس :**' , `$` , true)
+            .addField('**الأشخاص 🔮 :**' ,`[ ${client.users.size} ]` , true)
+            .addField('**اسم البوت 🔰 :**' , `[ ${client.user.tag} ]` , true)
+            .addField('**صاحب البوت 👑 :**' , `[<@545315760877076510>]` , true)
+            .setFooter(message.author.username, message.author.avatarURL)
+    })
+}
+});
 
-
+//كود الانفيت بشكل جميل
+client.on('message' , message => {
+ 
+    if (message.content === "*invite") {
+        message.reply(`تم ارساله الرابط في الخاص`)
+        if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
+     const embed = new Discord.RichEmbed()
+ .setColor("RANDOM")
+ .setThumbnail(client.user.avatarURL)    
+ .setDescription("دعوة اضافة البوت" + `
+ **
+رابط البوت |
+http://cutt.us/DBotDiscord
+ **
+`);
+  message.author.sendEmbed(embed);
+   }
+});
 
 client.login(process.env.BOT_TOKEN);

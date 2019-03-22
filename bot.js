@@ -59,7 +59,7 @@ client.on('ready', function(){
 
 //بداية كود البرودكاست
 
-lient.on("message", message => {
+client.on("message", message => {
 
 if (message.content.startsWith('$bc')){
 if (!message.member.hasPermission("ADMINISTRATOR"))  return;

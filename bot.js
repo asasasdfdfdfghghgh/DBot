@@ -8,7 +8,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : i1Suhaib ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Dbot | D7ommy`,"http://twitch.tv/S-F")
+client.user.setGame(`$help | $invite`,"http://twitch.tv/S-F")
 client.user.setStatus("dnd")
 });
 
@@ -32,7 +32,7 @@ client.on("message", message => {
 // + معلومات البوت + كود البينج الهو سرعة البوت
  
 client.on('message', message => {
-    if (message.content === ('*stats')) {
+    if (message.content === ('$bot')) {
     message.channel.send({
         embed: new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
@@ -54,7 +54,7 @@ client.on('message', message => {
 //كود الانفيت بشكل جميل
 client.on('message' , message => {
  
-    if (message.content === "*invite") {
+    if (message.content === "$invite") {
         message.reply(`تم ارساله الرابط في الخاص`)
         if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
      const embed = new Discord.RichEmbed()

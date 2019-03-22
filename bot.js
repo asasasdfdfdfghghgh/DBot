@@ -4,7 +4,7 @@ var prefix = "$";
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity("&bc - $bot || Dbot ", {type: 'STREAMIN'});
+ //lient.user.setActivity("&bc - $bot || Dbot ", {type: 'STREAMIN'});
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -33,6 +33,26 @@ client.on('ready', () => {
   console.log('')
   console.log('')
 });
+
+client.on('ready', function(){
+ var ms = 7000;
+    var setGame = [`$bc , $invite`,`$bot`,`Dbot | Da7m`];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+       if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setActivity(setGame[i],{type: "STREAMIN"});
+    }, ms);
+ 
+ 
+ 
+})
 
 //بداية كود البرودكاست
 
@@ -70,6 +90,25 @@ client.on('message', message => {
             .setFooter(message.author.username, message.author.avatarURL)
     })
 }
+});
+
+
+client.on('message' , message => {
+ 
+    if (message.content === "$nvite") {
+        message.reply(`تم ارساله الرابط في الخاص`)
+        if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
+     const embed = new Discord.RichEmbed()
+ .setColor("RANDOM")
+ .setThumbnail(client.user.avatarURL)    
+ .setDescription("دعوة اضافة البوت" + `
+ **
+رابط البوت |
+http://cutt.us/DBotDiscord
+ **
+`);
+  message.author.sendEmbed(embed);
+   }
 });
 
 //بداية كود الخ
